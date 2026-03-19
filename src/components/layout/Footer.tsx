@@ -20,7 +20,7 @@ const social = [
   { label: "LinkedIn", href: "#", icon: Linkedin },
   { label: "Twitter", href: "#", icon: Twitter },
   { label: "GitHub", href: "#", icon: Github },
-  { label: "Email", href: "mailto:hello@datatechz.com", icon: Mail },
+  { label: "Email", href: "mailto:chandra@datatechz.com", icon: Mail },
 ];
 
 export function Footer() {
@@ -107,10 +107,10 @@ export function Footer() {
                 Ready to transform your data strategy?
               </p>
               <a
-                href="mailto:hello@datatechz.com"
+                href="mailto:chandra@datatechz.com"
                 className="text-brand-cyan text-sm font-medium hover:text-white transition-colors duration-200 block"
               >
-                hello@datatechz.com
+                chandra@datatechz.com
               </a>
               <a
                 href="#contact"

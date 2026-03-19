@@ -7,75 +7,81 @@ const values = [
     title: "Deep Domain Expertise",
     description:
       "Our team of senior data engineers, ML scientists, and analytics consultants brings 10+ years of hands-on experience across complex enterprise environments.",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-    border: "border-brand-blue/20",
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-600",
+    border: "border-blue-100",
+    hoverBg: "hover:bg-blue-50/50",
   },
   {
     icon: Layers,
     title: "End-to-End Ownership",
     description:
       "From strategy and architecture to implementation and ongoing support — we own the entire data journey so you don't have to stitch together multiple vendors.",
-    color: "text-brand-cyan",
-    bg: "bg-brand-cyan/10",
-    border: "border-brand-cyan/20",
+    iconBg: "bg-cyan-50",
+    iconColor: "text-cyan-600",
+    border: "border-cyan-100",
+    hoverBg: "hover:bg-cyan-50/50",
   },
   {
     icon: Zap,
     title: "Speed Without Compromise",
     description:
       "Rapid delivery cycles using proven frameworks and accelerators. We ship production-ready solutions in weeks, not quarters — without cutting corners on quality.",
-    color: "text-amber-400",
-    bg: "bg-amber-400/10",
-    border: "border-amber-400/20",
+    iconBg: "bg-amber-50",
+    iconColor: "text-amber-600",
+    border: "border-amber-100",
+    hoverBg: "hover:bg-amber-50/50",
   },
   {
     icon: TrendingUp,
     title: "Measurable ROI",
     description:
       "Every engagement is scoped around clear business outcomes. We track the metrics that matter and can demonstrate tangible value at every stage.",
-    color: "text-green-400",
-    bg: "bg-green-400/10",
-    border: "border-green-400/20",
+    iconBg: "bg-green-50",
+    iconColor: "text-green-600",
+    border: "border-green-100",
+    hoverBg: "hover:bg-green-50/50",
   },
   {
     icon: ShieldCheck,
     title: "Enterprise-Grade Security",
     description:
       "SOC 2 aligned practices, encryption at rest and in transit, role-based access controls, and full data governance frameworks built into every solution.",
-    color: "text-brand-purple",
-    bg: "bg-brand-purple/10",
-    border: "border-brand-purple/20",
+    iconBg: "bg-purple-50",
+    iconColor: "text-purple-600",
+    border: "border-purple-100",
+    hoverBg: "hover:bg-purple-50/50",
   },
   {
     icon: Users,
     title: "True Partnership",
     description:
       "We embed into your team, not just deliver a project. Knowledge transfer, documentation, and ongoing support ensure your team is empowered long after we leave.",
-    color: "text-pink-400",
-    bg: "bg-pink-400/10",
-    border: "border-pink-400/20",
+    iconBg: "bg-pink-50",
+    iconColor: "text-pink-600",
+    border: "border-pink-100",
+    hoverBg: "hover:bg-pink-50/50",
   },
 ];
 
 export function WhyUs() {
   return (
-    <section className="section-padding bg-brand-navy relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
+    <section className="section-padding bg-slate-50 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-4">
+          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
             Why DataTechZ
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
             The Partner That{" "}
             <span className="gradient-text">Delivers Results</span>
           </h2>
-          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
-            We're not just a vendor — we're a strategic data partner committed
+          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+            We&apos;re not just a vendor — we&apos;re a strategic data partner committed
             to your long-term success.
           </p>
         </AnimatedSection>
@@ -86,14 +92,14 @@ export function WhyUs() {
             const Icon = value.icon;
             return (
               <AnimatedSection key={value.title} delay={i * 0.08}>
-                <div className={`rounded-2xl border ${value.border} ${value.bg} p-8 h-full hover:scale-[1.02] transition-transform duration-300`}>
-                  <div className={`w-10 h-10 rounded-lg ${value.bg} border ${value.border} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-5 h-5 ${value.color}`} />
+                <div className={`rounded-2xl border ${value.border} bg-white p-8 h-full ${value.hoverBg} hover:scale-[1.02] transition-all duration-300`}>
+                  <div className={`w-10 h-10 rounded-xl ${value.iconBg} flex items-center justify-center mb-5`}>
+                    <Icon className={`w-5 h-5 ${value.iconColor}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-brand-muted text-sm leading-relaxed">
+                  <p className="text-slate-500 text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </div>

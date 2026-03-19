@@ -24,17 +24,15 @@ export function Navbar() {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/50 shadow-lg shadow-black/20"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
+          : "bg-white/80 backdrop-blur-sm border-b border-slate-100"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +49,7 @@ export function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan flex items-center justify-center glow-blue-sm group-hover:scale-110 transition-transform duration-200">
               <Database className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-bold tracking-tight">
+            <span className="text-xl font-bold tracking-tight text-slate-900">
               Data<span className="gradient-text">TechZ</span>
             </span>
           </a>
@@ -62,7 +60,7 @@ export function Navbar() {
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm text-brand-muted hover:text-white transition-colors duration-200 font-medium"
+                className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
               >
                 {link.label}
               </button>
@@ -73,15 +71,15 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => handleNavClick("#contact")}
-              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan text-white text-sm font-semibold hover:opacity-90 glow-blue-sm transition-all duration-200 hover:scale-105"
+              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan text-white text-sm font-semibold hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-md shadow-blue-500/20"
             >
               Free Consultation
             </button>
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-brand-muted hover:text-white transition-colors"
+            className="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -91,13 +89,13 @@ export function Navbar() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-brand-border/50 mt-2">
+          <div className="md:hidden pb-4 border-t border-slate-100 mt-2">
             <div className="flex flex-col gap-1 pt-4">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left px-4 py-3 text-brand-muted hover:text-white hover:bg-brand-navy/50 rounded-lg transition-colors duration-200 text-sm font-medium"
+                  className="text-left px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200 text-sm font-medium"
                 >
                   {link.label}
                 </button>

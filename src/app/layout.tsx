@@ -48,7 +48,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-brand-dark text-white antialiased">{children}</body>
+      <body className="bg-white text-slate-900 antialiased">{children}</body>
     </html>
   );
 }

@@ -25,8 +25,8 @@ html {
 }
 
 body {
-  background-color: var(--brand-dark);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0F172A;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,10 +37,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--brand-dark);
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-border);
+  background: #CBD5E1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -72,16 +72,11 @@ body {
     box-shadow: 0 0 15px rgba(0, 102, 255, 0.25);
   }
 
-  .glow-cyan {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
-  }
-
-  /* Glass card */
+  /* Light card */
   .glass-card {
-    background: rgba(13, 22, 38, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(30, 45, 74, 0.6);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
   .glass-card-hover {
@@ -89,15 +84,39 @@ body {
   }
 
   .glass-card-hover:hover {
+    border-color: rgba(0, 102, 255, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+
+  /* Dark glass card — used inside dark sections (Hero, CTABanner, Footer) */
+  .glass-card-dark {
+    background: rgba(13, 22, 38, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 45, 74, 0.6);
+  }
+
+  .glass-card-dark-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-dark-hover:hover {
     background: rgba(13, 22, 38, 0.9);
     border-color: rgba(0, 102, 255, 0.4);
     box-shadow: 0 0 30px rgba(0, 102, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
   }
 
-  /* Dot grid background */
+  /* Dot grid background (dark, used in Hero) */
   .dot-grid {
     background-image: radial-gradient(circle, rgba(30, 45, 74, 0.8) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Dot grid light (for light sections if needed) */
+  .dot-grid-light {
+    background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
     background-size: 32px 32px;
   }
 

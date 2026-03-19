@@ -9,7 +9,7 @@ const testimonials = [
     role: "CTO",
     company: "FinanceX Group",
     avatar: "JW",
-    gradient: "from-blue-600 to-cyan-500",
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
     quote:
@@ -18,7 +18,7 @@ const testimonials = [
     role: "VP of Data & Analytics",
     company: "RetailFlow Inc.",
     avatar: "PS",
-    gradient: "from-purple-600 to-blue-500",
+    gradient: "from-purple-500 to-blue-500",
   },
   {
     quote:
@@ -27,7 +27,7 @@ const testimonials = [
     role: "Head of Operations",
     company: "Apex Manufacturing",
     avatar: "MC",
-    gradient: "from-teal-600 to-cyan-500",
+    gradient: "from-teal-500 to-cyan-500",
   },
   {
     quote:
@@ -36,28 +36,28 @@ const testimonials = [
     role: "CEO & Co-founder",
     company: "HealthBridge AI",
     avatar: "SO",
-    gradient: "from-rose-600 to-pink-500",
+    gradient: "from-rose-500 to-pink-500",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="section-padding bg-brand-navy relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
+    <section className="section-padding bg-slate-50 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-4">
+          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
             Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
             Trusted by Teams That{" "}
             <span className="gradient-text">Run on Data</span>
           </h2>
-          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
-            Don't take our word for it — hear from the engineers, analysts, and
+          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+            Don&apos;t take our word for it — hear from the engineers, analysts, and
             executives who work with us.
           </p>
         </AnimatedSection>
@@ -68,8 +68,8 @@ export function Testimonials() {
             <AnimatedSection key={t.author} delay={i * 0.1}>
               <div className="glass-card glass-card-hover rounded-2xl p-8 h-full flex flex-col relative">
                 {/* Quote icon */}
-                <div className="absolute top-6 right-7 opacity-10">
-                  <Quote className="w-10 h-10 text-brand-blue" />
+                <div className="absolute top-6 right-7 opacity-[0.07]">
+                  <Quote className="w-12 h-12 text-brand-blue" />
                 </div>
 
                 {/* Stars */}
@@ -82,20 +82,18 @@ export function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-white/90 text-base leading-relaxed flex-1 mb-8">
+                <blockquote className="text-slate-700 text-base leading-relaxed flex-1 mb-8">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div
-                    className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}
-                  >
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>
                     {t.avatar}
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">{t.author}</p>
-                    <p className="text-brand-muted text-xs">
+                    <p className="text-slate-900 font-semibold text-sm">{t.author}</p>
+                    <p className="text-slate-400 text-xs">
                       {t.role} · {t.company}
                     </p>
                   </div>
