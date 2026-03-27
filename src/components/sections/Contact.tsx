@@ -45,14 +45,11 @@ interface FormState {
 
 export function Contact() {
   const [form, setForm] = useState<FormState>({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    message: "",
+    name: "", email: "", company: "", service: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -60,65 +57,88 @@ export function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // Replace YOUR_FORM_ID below with your Formspree form ID from https://formspree.io
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Connect to your email service / API here
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setFormError("");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setFormError("Something went wrong. Please try emailing us directly at info@datatechz.com");
+      }
+    } catch {
+      setFormError("Network error. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  return (
-    <section id="contact" className="section-padding relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
+  const inputClass =
+    "w-full px-4 py-3 rounded-lg bg-white border border-brand-border text-brand-fg placeholder:text-slate-300 focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition-colors duration-200 text-sm";
+  const labelClass =
+    "block font-mono text-[10px] text-brand-muted uppercase tracking-widest mb-2";
 
+  return (
+    <section id="contact" className="section-padding bg-brand-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
+        <AnimatedSection className="mb-14">
+          <span className="font-mono text-xs text-brand-teal uppercase tracking-widest">
             Contact
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-            Let&apos;s Build Something{" "}
-            <span className="gradient-text">Exceptional</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-fg mt-3 leading-tight">
+            Let&apos;s build something
+            <br />
+            exceptional together
           </h2>
-          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
-            Tell us about your data challenge and we&apos;ll come back with ideas,
-            options, and an honest assessment.
-          </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Contact info */}
+
+          {/* Left info */}
           <AnimatedSection direction="left" className="lg:col-span-2">
             <div className="space-y-6">
               {contactInfo.map((item) => {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-navy border border-brand-border flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon className="w-5 h-5 text-brand-blue" />
+                    <div className="w-10 h-10 rounded-xl bg-brand-alt border border-brand-border flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="w-4 h-4 text-brand-teal" />
                     </div>
                     <div>
-                      <p className="text-xs text-brand-muted font-semibold uppercase tracking-wider mb-1">
+                      <p className="font-mono text-[10px] text-brand-muted uppercase tracking-widest mb-1">
                         {item.label}
                       </p>
                       {item.href ? (
-                        <a href={item.href} className="text-white font-medium hover:text-brand-blue transition-colors duration-200">
+                        <a
+                          href={item.href}
+                          className="text-brand-fg font-medium text-sm hover:text-brand-teal transition-colors duration-200"
+                        >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-white font-medium">{item.value}</p>
+                        <p className="text-brand-fg font-medium text-sm">{item.value}</p>
                       )}
                     </div>
                   </div>
                 );
               })}
 
-              {/* Commitment box */}
-              <div className="mt-10 p-6 rounded-2xl border border-brand-border bg-brand-navy/30">
-                <h4 className="text-white font-bold mb-4">What to Expect</h4>
+              {/* What to expect */}
+              <div className="mt-8 p-6 rounded-xl border border-brand-border bg-brand-alt">
+                <h4 className="font-display font-semibold text-brand-fg text-sm mb-4">
+                  What to Expect
+                </h4>
                 <ul className="space-y-3">
                   {[
                     "Free 30-min discovery call",
@@ -128,7 +148,7 @@ export function Contact() {
                     "NDA available before any discussion",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-brand-muted">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="w-3.5 h-3.5 text-brand-teal flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -140,65 +160,61 @@ export function Contact() {
           {/* Form */}
           <AnimatedSection direction="right" className="lg:col-span-3">
             {submitted ? (
-              <div className="glass-card rounded-2xl p-12 flex flex-col items-center justify-center text-center h-full min-h-[400px]">
-                <div className="w-16 h-16 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-8 h-8 text-green-500" />
+              <div className="rounded-xl border border-brand-border bg-brand-alt p-12 flex flex-col items-center justify-center text-center h-full min-h-[400px]">
+                <div className="w-16 h-16 rounded-full bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center mb-6">
+                  <CheckCircle className="w-7 h-7 text-brand-teal" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  Message Received!
+                <h3 className="font-display text-xl font-bold text-brand-fg mb-3">
+                  Message Received
                 </h3>
-                <p className="text-slate-500 max-w-sm">
-                  Thanks for reaching out. We&apos;ll review your message and get
-                  back to you within 24 business hours.
+                <p className="text-brand-muted text-sm max-w-sm">
+                  Thanks for reaching out. We&apos;ll review your message and
+                  get back to you within 24 business hours.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass-card-dark rounded-2xl p-8 space-y-5">
+              <form
+                onSubmit={handleSubmit}
+                className="rounded-xl border border-brand-border bg-brand-alt p-8 space-y-5"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-brand-muted mb-2">
-                      Full Name <span className="text-brand-blue">*</span>
+                    <label htmlFor="name" className={labelClass}>
+                      Full Name <span className="text-brand-teal">*</span>
                     </label>
                     <input
                       id="name" name="name" type="text" required
                       value={form.name} onChange={handleChange}
-                      placeholder="Jane Smith"
-                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      placeholder="Jane Smith" className={inputClass}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-brand-muted mb-2">
-                      Work Email <span className="text-brand-blue">*</span>
+                    <label htmlFor="email" className={labelClass}>
+                      Work Email <span className="text-brand-teal">*</span>
                     </label>
                     <input
                       id="email" name="email" type="email" required
                       value={form.email} onChange={handleChange}
-                      placeholder="jane@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      placeholder="jane@company.com" className={inputClass}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-brand-muted mb-2">
-                      Company
-                    </label>
+                    <label htmlFor="company" className={labelClass}>Company</label>
                     <input
                       id="company" name="company" type="text"
                       value={form.company} onChange={handleChange}
-                      placeholder="Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      placeholder="Acme Corp" className={inputClass}
                     />
                   </div>
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-brand-muted mb-2">
-                      Service of Interest
-                    </label>
+                    <label htmlFor="service" className={labelClass}>Service of Interest</label>
                     <select
                       id="service" name="service"
                       value={form.service} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm appearance-none"
+                      className={`${inputClass} appearance-none`}
                     >
                       <option value="">Select a service</option>
                       {services.map((s) => (
@@ -209,20 +225,25 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-brand-muted mb-2">
-                    Tell Us About Your Challenge <span className="text-brand-blue">*</span>
+                  <label htmlFor="message" className={labelClass}>
+                    Tell Us About Your Challenge{" "}
+                    <span className="text-brand-teal">*</span>
                   </label>
                   <textarea
                     id="message" name="message" required rows={5}
                     value={form.message} onChange={handleChange}
                     placeholder="Describe your data challenge, current stack, or what you're trying to achieve..."
-                    className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm resize-none"
+                    className={`${inputClass} resize-none`}
                   />
                 </div>
 
+                {formError && (
+                  <p className="text-red-500 text-xs text-center">{formError}</p>
+                )}
+
                 <button
                   type="submit" disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-md shadow-blue-500/20 hover:opacity-90 hover:scale-[1.02] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+                  className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-brand-navy text-white font-bold text-sm hover:bg-slate-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -233,13 +254,15 @@ export function Contact() {
                       Sending...
                     </>
                   ) : (
-                    <>Send Message <Send className="w-4 h-4" /></>
+                    <>
+                      Send Message <Send className="w-4 h-4" />
+                    </>
                   )}
                 </button>
 
                 <p className="text-center text-xs text-brand-muted">
                   By submitting, you agree to our{" "}
-                  <a href="#" className="text-brand-blue hover:underline">Privacy Policy</a>.
+                  <a href="#" className="text-brand-teal hover:underline">Privacy Policy</a>.
                   We never share your data.
                 </p>
               </form>

@@ -6,12 +6,10 @@ const steps = [
     number: "01",
     icon: Search,
     title: "Discover",
-    subtitle: "Understand Your Data Landscape",
+    subtitle: "Understand Your Landscape",
     description:
-      "We start with a deep-dive into your existing data infrastructure, business goals, and pain points. We audit your data sources, quality, and gaps to establish a clear baseline.",
+      "Deep-dive into your data infrastructure, business goals, and pain points. We audit your sources, quality, and gaps to establish a clear baseline.",
     deliverables: ["Data Audit Report", "Gap Analysis", "Opportunity Map"],
-    color: "from-blue-500 to-blue-600",
-    light: "bg-blue-50 text-blue-600",
   },
   {
     number: "02",
@@ -19,10 +17,8 @@ const steps = [
     title: "Design",
     subtitle: "Architecture & Strategy",
     description:
-      "Based on the discovery findings, we design a scalable data architecture and strategic roadmap. Technology selection, timeline, and success metrics are defined collaboratively.",
+      "We design a scalable data architecture and strategic roadmap. Technology selection, timeline, and success metrics defined collaboratively.",
     deliverables: ["Architecture Blueprint", "Tech Stack Recommendation", "Project Roadmap"],
-    color: "from-indigo-500 to-indigo-600",
-    light: "bg-indigo-50 text-indigo-600",
   },
   {
     number: "03",
@@ -30,10 +26,8 @@ const steps = [
     title: "Build",
     subtitle: "Implementation & Integration",
     description:
-      "Agile delivery in focused sprints. We build, test, and iterate rapidly — keeping you involved at every milestone. Full CI/CD, documentation, and knowledge transfer included.",
+      "Agile delivery in focused sprints. We build, test, and iterate rapidly — keeping you involved at every milestone with full CI/CD and documentation.",
     deliverables: ["Working System", "Tests & Docs", "CI/CD Pipeline"],
-    color: "from-cyan-500 to-cyan-600",
-    light: "bg-cyan-50 text-cyan-600",
   },
   {
     number: "04",
@@ -41,71 +35,69 @@ const steps = [
     title: "Scale",
     subtitle: "Optimize & Grow",
     description:
-      "Post-launch monitoring, performance optimization, and continuous improvement. As your business grows, your data platform evolves with it — with our team supporting you.",
-    deliverables: ["Performance Reports", "Optimization Recommendations", "Growth Plan"],
-    color: "from-green-500 to-green-600",
-    light: "bg-green-50 text-green-600",
+      "Post-launch monitoring, performance optimization, and continuous improvement. Your data platform evolves as your business grows.",
+    deliverables: ["Performance Reports", "Optimization Plan", "Growth Roadmap"],
   },
 ];
 
 export function Process() {
   return (
-    <section id="process" className="section-padding relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
-
+    <section id="process" className="section-padding bg-brand-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
-            How We Work
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-            A Proven Process for{" "}
-            <span className="gradient-text">Reliable Results</span>
-          </h2>
-          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
-            No surprises. No scope creep. Our structured approach ensures every
-            engagement delivers on its promises.
-          </p>
+        <AnimatedSection className="mb-16">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <span className="font-mono text-xs text-brand-teal uppercase tracking-widest">
+                How We Work
+              </span>
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-fg mt-3 leading-tight">
+                A proven process
+                <br />
+                for reliable results
+              </h2>
+            </div>
+            <p className="text-brand-muted text-base leading-relaxed max-w-sm lg:pb-1">
+              No surprises. No scope creep. Our structured approach ensures every
+              engagement delivers on its promises.
+            </p>
+          </div>
         </AnimatedSection>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <AnimatedSection key={step.number} delay={i * 0.1}>
-                <div className="relative flex flex-col h-full glass-card-dark glass-card-dark-hover rounded-2xl p-7 transition-all duration-300">
-                  {/* Step number badge */}
-                  <span className="absolute top-5 right-5 text-4xl font-black text-brand-border select-none opacity-50">
-                    {step.number}
-                  </span>
+              <AnimatedSection key={step.number} delay={i * 0.08}>
+                <div className="bg-white rounded-xl border border-brand-border p-7 h-full flex flex-col hover:border-brand-teal/30 hover:shadow-lg transition-all duration-200">
 
-                  {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-5 shadow-md`}>
-                    <Icon className="w-6 h-6 text-white" />
+                  {/* Step header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <span className="font-display text-5xl font-bold text-brand-border leading-none select-none">
+                      {step.number}
+                    </span>
+                    <div className="w-10 h-10 rounded-xl bg-brand-alt flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-brand-teal" />
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="font-display text-lg font-semibold text-brand-fg mb-1">
                     {step.title}
                   </h3>
-                  <p className={`text-sm font-semibold mb-3 ${step.light.split(" ")[1]}`}>
+                  <p className="font-mono text-[10px] text-brand-teal uppercase tracking-wider mb-3">
                     {step.subtitle}
                   </p>
-                  <p className="text-brand-muted text-sm leading-relaxed mb-5 flex-1">
+                  <p className="text-brand-muted text-sm leading-relaxed mb-6 flex-1">
                     {step.description}
                   </p>
 
                   {/* Deliverables */}
-                  <div className="space-y-1.5 pt-4 border-t border-brand-border">
-                    <p className="text-xs text-brand-muted/60 font-semibold uppercase tracking-wider mb-2">
-                      Deliverables
-                    </p>
+                  <div className="pt-5 border-t border-brand-border space-y-2">
                     {step.deliverables.map((d) => (
                       <div key={d} className="flex items-center gap-2">
-                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 bg-gradient-to-br ${step.color}`} />
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-teal flex-shrink-0" />
                         <span className="text-xs text-brand-muted">{d}</span>
                       </div>
                     ))}

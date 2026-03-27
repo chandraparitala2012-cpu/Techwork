@@ -1,48 +1,47 @@
 "use client";
 
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export function CTABanner() {
   return (
-    <section className="py-24 bg-brand-dark relative overflow-hidden">
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-brand-blue/25 blur-[120px]" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-purple/20 blur-[100px]" />
-      </div>
+    <section className="py-24 bg-brand-navy relative overflow-hidden">
+      {/* Grid */}
+      <div className="absolute inset-0 dark-grid pointer-events-none" />
+      {/* Teal glow — centered */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 60% 70% at 50% 100%, rgba(0,194,212,0.12) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <AnimatedSection>
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-sm font-medium mb-8">
-            <Calendar className="w-3.5 h-3.5" />
-            Book a free 30-minute strategy call
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-            Ready to Unlock the{" "}
-            <span className="gradient-text">Full Potential</span>
+          <span className="font-mono text-xs text-brand-teal uppercase tracking-widest">
+            Get Started
+          </span>
+          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white mt-4 mb-6 leading-[1.07]">
+            Let&apos;s talk about
             <br />
-            of Your Data?
+            <span className="text-brand-teal">your data.</span>
           </h2>
-
-          <p className="mt-6 text-lg text-brand-muted max-w-xl mx-auto leading-relaxed">
-            Join 80+ companies that trust DataTechZ to build their data
-            foundations, accelerate insights, and drive measurable growth.
+          <p className="text-slate-400 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+            Book a free 30-minute strategy call. No commitment, no pushy sales
+            tactics — just an honest conversation about your goals.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold text-base glow-blue hover:opacity-90 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+              className="group inline-flex items-center gap-2 w-full sm:w-auto px-8 py-4 bg-brand-teal text-brand-navy font-bold rounded-lg hover:bg-cyan-300 transition-colors duration-200 justify-center cursor-pointer"
             >
               Start the Conversation
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
             <a
               href="#case-studies"
@@ -50,26 +49,19 @@ export function CTABanner() {
                 e.preventDefault();
                 document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-border text-white font-semibold text-base hover:border-brand-blue hover:bg-brand-blue/10 transition-all duration-200 text-center"
+              className="w-full sm:w-auto px-8 py-4 border border-slate-700 text-white font-semibold rounded-lg hover:border-slate-500 hover:bg-white/5 transition-all duration-200 text-center cursor-pointer"
             >
               See Our Work
             </a>
           </div>
 
           {/* Trust signals */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-brand-muted">
-            <span className="flex items-center gap-2">
-              <span className="w-4 h-px bg-brand-blue" />
-              No commitment required
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-4 h-px bg-brand-cyan" />
-              NDA available on request
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-4 h-px bg-brand-purple" />
-              Response within 24 hours
-            </span>
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-mono uppercase tracking-wider">
+            <span>No commitment required</span>
+            <span className="text-slate-700">·</span>
+            <span>NDA on request</span>
+            <span className="text-slate-700">·</span>
+            <span>Response within 24 hrs</span>
           </div>
         </AnimatedSection>
       </div>

@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const testimonials = [
@@ -8,8 +8,7 @@ const testimonials = [
     author: "James Whitfield",
     role: "CTO",
     company: "FinanceX Group",
-    avatar: "JW",
-    gradient: "from-blue-500 to-cyan-500",
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80",
   },
   {
     quote:
@@ -17,8 +16,7 @@ const testimonials = [
     author: "Priya Sharma",
     role: "VP of Data & Analytics",
     company: "RetailFlow Inc.",
-    avatar: "PS",
-    gradient: "from-purple-500 to-blue-500",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80",
   },
   {
     quote:
@@ -26,8 +24,7 @@ const testimonials = [
     author: "Michael Chen",
     role: "Head of Operations",
     company: "Apex Manufacturing",
-    avatar: "MC",
-    gradient: "from-teal-500 to-cyan-500",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80",
   },
   {
     quote:
@@ -35,42 +32,32 @@ const testimonials = [
     author: "Sarah Okonkwo",
     role: "CEO & Co-founder",
     company: "HealthBridge AI",
-    avatar: "SO",
-    gradient: "from-rose-500 to-pink-500",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="section-padding bg-slate-50 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-
+    <section className="section-padding bg-brand-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
+        <AnimatedSection className="mb-14">
+          <span className="font-mono text-xs text-brand-teal uppercase tracking-widest">
             Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
-            Trusted by Teams That{" "}
-            <span className="gradient-text">Run on Data</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-fg mt-3 leading-tight">
+            Trusted by teams that
+            <br />
+            run on data
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
-            Don&apos;t take our word for it — hear from the engineers, analysts, and
-            executives who work with us.
-          </p>
         </AnimatedSection>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {testimonials.map((t, i) => (
-            <AnimatedSection key={t.author} delay={i * 0.1}>
-              <div className="glass-card glass-card-hover rounded-2xl p-8 h-full flex flex-col relative">
-                {/* Quote icon */}
-                <div className="absolute top-6 right-7 opacity-[0.07]">
-                  <Quote className="w-12 h-12 text-brand-blue" />
-                </div>
+            <AnimatedSection key={t.author} delay={i * 0.08}>
+              <div className="bg-white rounded-xl border border-brand-border p-8 h-full flex flex-col hover:border-brand-teal/30 hover:shadow-lg transition-all duration-200">
 
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-6">
@@ -82,20 +69,18 @@ export function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-slate-700 text-base leading-relaxed flex-1 mb-8">
+                <blockquote className="text-brand-fg text-base leading-relaxed flex-1 mb-8">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 
                 {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>
-                    {t.avatar}
+                <div className="flex items-center gap-3 pt-5 border-t border-brand-border">
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-brand-border">
+                    <Image src={t.avatar} alt={t.author} width={40} height={40} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <p className="text-slate-900 font-semibold text-sm">{t.author}</p>
-                    <p className="text-slate-400 text-xs">
-                      {t.role} · {t.company}
-                    </p>
+                    <p className="font-display font-semibold text-brand-fg text-sm">{t.author}</p>
+                    <p className="text-brand-muted text-xs">{t.role} · {t.company}</p>
                   </div>
                 </div>
               </div>

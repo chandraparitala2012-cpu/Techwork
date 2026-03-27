@@ -1,120 +1,116 @@
-import {
-  Database,
-  BarChart3,
-  LayoutDashboard,
-  Brain,
-  Lightbulb,
-  Cloud,
-  ArrowUpRight,
-} from "lucide-react";
+import Image from "next/image";
+import { Database, BarChart3, LayoutDashboard, Brain, MessageSquare, Cloud } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const services = [
   {
     icon: Database,
     title: "Data Engineering",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
     description:
-      "Build robust, scalable data pipelines and infrastructure that handle billions of records. From ingestion to transformation, we architect systems that grow with your business.",
-    gradient: "from-blue-600 to-blue-400",
-    iconBg: "bg-blue-50",
-    accent: "text-blue-600",
+      "Scalable, reliable pipelines and infrastructure that power your analytics and AI at any volume.",
+    tags: ["ETL / ELT", "Data Lakes", "Warehousing"],
   },
   {
     icon: BarChart3,
     title: "Analytics & Insights",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
     description:
-      "Turn raw data into actionable intelligence with advanced statistical analysis, predictive modeling, and custom reporting frameworks tailored to your KPIs.",
-    gradient: "from-cyan-600 to-cyan-400",
-    iconBg: "bg-cyan-50",
-    accent: "text-cyan-600",
+      "Advanced analytics that go beyond reporting — surfacing the signals that drive real business outcomes.",
+    tags: ["SQL", "Python", "dbt"],
   },
   {
     icon: LayoutDashboard,
     title: "BI Dashboards",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
     description:
-      "Interactive, real-time dashboards that give your teams instant visibility into performance metrics. Beautiful, intuitive, and built for decision-makers.",
-    gradient: "from-indigo-600 to-indigo-400",
-    iconBg: "bg-indigo-50",
-    accent: "text-indigo-600",
+      "Executive dashboards and self-service reporting that put data-driven decisions in everyone's hands.",
+    tags: ["Tableau", "Power BI", "Looker"],
   },
   {
     icon: Brain,
     title: "ML & AI Solutions",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
     description:
-      "Custom machine learning models, NLP pipelines, and AI-powered automation that solve your specific business challenges — from recommendation engines to anomaly detection.",
-    gradient: "from-purple-600 to-purple-400",
-    iconBg: "bg-purple-50",
-    accent: "text-purple-600",
+      "Custom machine learning models built for your specific business problems — not generic demos.",
+    tags: ["Predictive ML", "NLP", "MLOps"],
   },
   {
-    icon: Lightbulb,
+    icon: MessageSquare,
     title: "Data Consulting",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
     description:
-      "Strategic data roadmaps, architecture reviews, and technology selection. We help you build the right foundation before investing in execution.",
-    gradient: "from-amber-600 to-amber-400",
-    iconBg: "bg-amber-50",
-    accent: "text-amber-600",
+      "Strategic roadmaps and architecture reviews that align your data investment with your goals.",
+    tags: ["Strategy", "Architecture", "Audit"],
   },
   {
     icon: Cloud,
-    title: "Cloud Data Migration",
+    title: "Cloud Migration",
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
     description:
-      "Seamlessly migrate your data infrastructure to AWS, GCP, or Azure. Zero downtime, data integrity guaranteed, and optimized for cloud-native performance.",
-    gradient: "from-teal-600 to-teal-400",
-    iconBg: "bg-teal-50",
-    accent: "text-teal-600",
+      "Move your data infrastructure to the cloud with zero data loss and minimal operational downtime.",
+    tags: ["AWS", "GCP", "Azure"],
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="section-padding bg-white relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
-
+    <section id="services" className="section-padding bg-brand-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
-            Our Services
+        <AnimatedSection className="mb-14">
+          <span className="font-mono text-xs text-brand-teal uppercase tracking-widest">
+            What We Do
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
-            Everything You Need to Build a{" "}
-            <span className="gradient-text">Data-Driven Business</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-fg mt-3 leading-tight">
+            End-to-end data services
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
-            From raw data to actionable insights, we cover the full spectrum of
-            modern data capabilities under one roof.
+          <p className="mt-4 text-brand-muted text-lg max-w-2xl leading-relaxed">
+            From raw data to real decisions — we cover every layer of the modern data stack.
           </p>
         </AnimatedSection>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
-              <AnimatedSection key={service.title} delay={i * 0.08}>
-                <div className="group glass-card glass-card-hover rounded-2xl p-8 h-full flex flex-col cursor-default">
-                  {/* Icon */}
-                  <div
-                    className={`w-12 h-12 rounded-xl ${service.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <div className={`bg-gradient-to-br ${service.gradient} w-full h-full rounded-xl flex items-center justify-center`}>
-                      <Icon className="w-6 h-6 text-white" />
+              <AnimatedSection key={service.title} delay={i * 0.07}>
+                <div className="group rounded-xl border border-brand-border bg-white hover:border-brand-teal/40 hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300 h-full flex flex-col overflow-hidden">
+
+                  {/* Image */}
+                  <div className="relative h-36 overflow-hidden flex-shrink-0">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-white/80" />
+                    <div className="absolute bottom-3 left-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center border border-brand-border shadow-sm group-hover:bg-brand-teal/10 group-hover:border-brand-teal/30 transition-colors duration-300">
+                      <Icon className="w-5 h-5 text-brand-teal" />
                     </div>
                   </div>
 
-                  {/* Text */}
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed flex-1">
-                    {service.description}
-                  </p>
-
-                  {/* Link */}
-                  <div className={`mt-6 flex items-center gap-1.5 ${service.accent} text-sm font-semibold`}>
-                    Learn more
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                  {/* Content */}
+                  <div className="p-7 flex flex-col flex-1">
+                    <h3 className="font-display text-lg font-semibold text-brand-fg mb-2.5">
+                      {service.title}
+                    </h3>
+                    <p className="text-brand-muted text-sm leading-relaxed flex-1">
+                      {service.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-brand-border">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-[10px] px-2.5 py-1 rounded-md border border-brand-border text-brand-muted bg-brand-alt"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>

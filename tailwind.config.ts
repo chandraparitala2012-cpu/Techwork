@@ -10,44 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          dark: "#050B18",
-          navy: "#0D1626",
-          blue: "#0066FF",
-          cyan: "#00D4FF",
-          teal: "#00B4C8",
-          purple: "#7C3AED",
-          border: "#1E2D4A",
-          muted: "#94A3B8",
+          navy:        "#071528",
+          "navy-card": "#0C1E36",
+          "navy-border":"#152840",
+          teal:        "#00C2D4",
+          "teal-dim":  "#008A99",
+          bg:          "#FFFFFF",
+          alt:         "#F4F7FA",
+          fg:          "#09172B",
+          muted:       "#5A6E87",
+          border:      "#DDE5EF",
         },
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-      },
-      animation: {
-        "fade-in": "fadeIn 0.6s ease-out forwards",
-        "slide-up": "slideUp 0.6s ease-out forwards",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "float": "float 6s ease-in-out infinite",
-        "gradient-x": "gradientX 8s ease infinite",
-        "bounce-slow": "bounce 3s infinite",
-      },
-      keyframes: {
-        fadeIn: {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
-        },
-        slideUp: {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
-        gradientX: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
+        display: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans:    ["Inter", "system-ui", "sans-serif"],
+        mono:    ["JetBrains Mono", "Menlo", "monospace"],
       },
     },
   },
