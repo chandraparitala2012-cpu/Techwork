@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Database } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -31,8 +32,8 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
-          : "bg-white/80 backdrop-blur-sm border-b border-slate-100"
+          ? "bg-brand-navy/80 backdrop-blur-md border-b border-brand-border shadow-sm shadow-black/20"
+          : "bg-transparent backdrop-blur-sm border-b border-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,18 +41,20 @@ export function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan flex items-center justify-center glow-blue-sm group-hover:scale-110 transition-transform duration-200">
-              <Database className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">
-              Data<span className="gradient-text">TechZ</span>
-            </span>
+            <Image
+              src="/logo.svg"
+              alt="DataTechZ"
+              width={175}
+              height={42}
+              className="h-10 w-auto object-contain group-hover:opacity-85 transition-opacity duration-200"
+              priority
+            />
           </a>
 
           {/* Desktop nav */}
@@ -60,7 +63,7 @@ export function Navbar() {
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
+                className="text-sm text-brand-muted hover:text-white transition-colors duration-200 font-medium"
               >
                 {link.label}
               </button>
@@ -79,7 +82,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
+            className="md:hidden p-2 text-brand-muted hover:text-white transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -89,13 +92,13 @@ export function Navbar() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-slate-100 mt-2">
-            <div className="flex flex-col gap-1 pt-4">
+          <div className="md:hidden pb-4 border-t border-brand-border mt-2 bg-brand-dark/95 backdrop-blur-md px-2 rounded-b-2xl">
+            <div className="flex flex-col gap-2 pt-4">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200 text-sm font-medium"
+                  className="text-left px-4 py-3 text-brand-muted hover:text-white hover:bg-brand-border/50 rounded-lg transition-colors duration-200 text-sm font-medium"
                 >
                   {link.label}
                 </button>

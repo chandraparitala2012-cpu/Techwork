@@ -29,7 +29,7 @@ export function Hero() {
         {/* Gradient orbs */}
         <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-brand-blue/20 blur-[120px] animate-pulse-slow" />
         <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-brand-cyan/15 blur-[100px] animate-pulse-slow" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full bg-brand-purple/20 blur-[120px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 rounded-full bg-brand-blue/10 blur-[100px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Content */}

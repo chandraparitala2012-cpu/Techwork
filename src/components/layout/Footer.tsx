@@ -1,4 +1,5 @@
-import { Database, Linkedin, Twitter, Github, Mail } from "lucide-react";
+import Image from "next/image";
+import { Linkedin, Twitter, Github, Mail } from "lucide-react";
 
 const services = [
   "Data Engineering",
@@ -20,7 +21,7 @@ const social = [
   { label: "LinkedIn", href: "#", icon: Linkedin },
   { label: "Twitter", href: "#", icon: Twitter },
   { label: "GitHub", href: "#", icon: Github },
-  { label: "Email", href: "mailto:chandra@datatechz.com", icon: Mail },
+  { label: "Email", href: "mailto:info@datatechz.com", icon: Mail },
 ];
 
 export function Footer() {
@@ -30,13 +31,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan flex items-center justify-center">
-                <Database className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-xl font-bold">
-                Data<span className="gradient-text">TechZ</span>
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/logo.svg"
+                alt="DataTechZ"
+                width={160}
+                height={38}
+                className="h-9 w-auto object-contain"
+              />
             </div>
             <p className="text-brand-muted text-sm leading-relaxed mb-6">
               Transforming data into competitive advantage for enterprises and
@@ -107,10 +109,10 @@ export function Footer() {
                 Ready to transform your data strategy?
               </p>
               <a
-                href="mailto:chandra@datatechz.com"
+                href="mailto:info@datatechz.com"
                 className="text-brand-cyan text-sm font-medium hover:text-white transition-colors duration-200 block"
               >
-                chandra@datatechz.com
+                info@datatechz.com
               </a>
               <a
                 href="#contact"

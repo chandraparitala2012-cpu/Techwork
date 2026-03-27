@@ -14,13 +14,14 @@ const config: Config = {
           navy: "#0D1626",
           blue: "#0066FF",
           cyan: "#00D4FF",
+          teal: "#00B4C8",
           purple: "#7C3AED",
           border: "#1E2D4A",
           muted: "#94A3B8",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",

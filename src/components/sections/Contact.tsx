@@ -8,8 +8,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "chandra@datatechz.com",
-    href: "mailto:chandra@datatechz.com",
+    value: "info@datatechz.com",
+    href: "mailto:info@datatechz.com",
   },
   {
     icon: MapPin,
@@ -70,8 +70,8 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-white relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section id="contact" className="section-padding relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -79,11 +79,11 @@ export function Contact() {
           <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
             Contact
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
             Let&apos;s Build Something{" "}
             <span className="gradient-text">Exceptional</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
             Tell us about your data challenge and we&apos;ll come back with ideas,
             options, and an honest assessment.
           </p>
@@ -97,19 +97,19 @@ export function Contact() {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-10 h-10 rounded-xl bg-brand-navy border border-brand-border flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon className="w-5 h-5 text-brand-blue" />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">
+                      <p className="text-xs text-brand-muted font-semibold uppercase tracking-wider mb-1">
                         {item.label}
                       </p>
                       {item.href ? (
-                        <a href={item.href} className="text-slate-900 font-medium hover:text-brand-blue transition-colors duration-200">
+                        <a href={item.href} className="text-white font-medium hover:text-brand-blue transition-colors duration-200">
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-slate-900 font-medium">{item.value}</p>
+                        <p className="text-white font-medium">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -117,8 +117,8 @@ export function Contact() {
               })}
 
               {/* Commitment box */}
-              <div className="mt-10 p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                <h4 className="text-slate-900 font-bold mb-4">What to Expect</h4>
+              <div className="mt-10 p-6 rounded-2xl border border-brand-border bg-brand-navy/30">
+                <h4 className="text-white font-bold mb-4">What to Expect</h4>
                 <ul className="space-y-3">
                   {[
                     "Free 30-min discovery call",
@@ -127,7 +127,7 @@ export function Contact() {
                     "Clear proposal within 5 days",
                     "NDA available before any discussion",
                   ].map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-slate-600">
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-brand-muted">
                       <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                       {item}
                     </li>
@@ -153,52 +153,52 @@ export function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass-card-dark rounded-2xl p-8 space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-brand-muted mb-2">
                       Full Name <span className="text-brand-blue">*</span>
                     </label>
                     <input
                       id="name" name="name" type="text" required
                       value={form.name} onChange={handleChange}
                       placeholder="Jane Smith"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-brand-muted mb-2">
                       Work Email <span className="text-brand-blue">*</span>
                     </label>
                     <input
                       id="email" name="email" type="email" required
                       value={form.email} onChange={handleChange}
                       placeholder="jane@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-brand-muted mb-2">
                       Company
                     </label>
                     <input
                       id="company" name="company" type="text"
                       value={form.company} onChange={handleChange}
                       placeholder="Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="service" className="block text-sm font-medium text-brand-muted mb-2">
                       Service of Interest
                     </label>
                     <select
                       id="service" name="service"
                       value={form.service} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm appearance-none"
+                      className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm appearance-none"
                     >
                       <option value="">Select a service</option>
                       {services.map((s) => (
@@ -209,14 +209,14 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-brand-muted mb-2">
                     Tell Us About Your Challenge <span className="text-brand-blue">*</span>
                   </label>
                   <textarea
                     id="message" name="message" required rows={5}
                     value={form.message} onChange={handleChange}
                     placeholder="Describe your data challenge, current stack, or what you're trying to achieve..."
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-brand-navy border border-brand-border text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors duration-200 text-sm resize-none"
                   />
                 </div>
 
@@ -237,7 +237,7 @@ export function Contact() {
                   )}
                 </button>
 
-                <p className="text-center text-xs text-slate-400">
+                <p className="text-center text-xs text-brand-muted">
                   By submitting, you agree to our{" "}
                   <a href="#" className="text-brand-blue hover:underline">Privacy Policy</a>.
                   We never share your data.

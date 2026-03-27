@@ -95,8 +95,8 @@ const industries = [
 
 export function Industries() {
   return (
-    <section id="industries" className="section-padding bg-white relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px bg-gradient-to-r from-transparent via-blue-100 to-transparent" />
+    <section id="industries" className="section-padding relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -104,11 +104,11 @@ export function Industries() {
           <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
             Industries
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
             Built for Your{" "}
             <span className="gradient-text">Industry</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
             Deep industry knowledge combined with technical excellence. We speak
             your language and understand your data challenges.
           </p>
@@ -120,23 +120,23 @@ export function Industries() {
             const Icon = industry.icon;
             return (
               <AnimatedSection key={industry.name} delay={i * 0.06}>
-                <div className="glass-card glass-card-hover rounded-2xl p-6 h-full flex flex-col">
+                <div className="glass-card-dark glass-card-dark-hover rounded-2xl p-6 h-full flex flex-col border-brand-border">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-10 h-10 rounded-lg ${industry.bg} flex items-center justify-center flex-shrink-0`}>
+                    <div className={`w-10 h-10 rounded-lg bg-brand-navy border border-brand-border flex items-center justify-center flex-shrink-0`}>
                       <Icon className={`w-5 h-5 ${industry.color}`} />
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900">
+                    <h3 className="text-sm font-bold text-white">
                       {industry.name}
                     </h3>
                   </div>
-                  <p className="text-slate-500 text-xs leading-relaxed mb-4 flex-1">
+                  <p className="text-brand-muted text-xs leading-relaxed mb-4 flex-1">
                     {industry.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {industry.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`text-xs px-2 py-0.5 rounded-full border font-medium ${industry.tagColor}`}
+                        className={`text-xs px-2 py-0.5 rounded-full border border-brand-border font-medium text-brand-muted bg-brand-navy/50`}
                       >
                         {tag}
                       </span>

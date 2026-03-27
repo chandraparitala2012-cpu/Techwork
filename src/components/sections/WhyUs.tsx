@@ -66,9 +66,9 @@ const values = [
 
 export function WhyUs() {
   return (
-    <section className="section-padding bg-slate-50 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section className="section-padding relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -76,14 +76,31 @@ export function WhyUs() {
           <span className="inline-block text-brand-blue text-sm font-semibold uppercase tracking-widest mb-4">
             Why DataTechZ
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
             The Partner That{" "}
             <span className="gradient-text">Delivers Results</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-brand-muted text-lg max-w-2xl mx-auto">
             We&apos;re not just a vendor — we&apos;re a strategic data partner committed
             to your long-term success.
           </p>
+        </AnimatedSection>
+
+        {/* Trust metrics strip */}
+        <AnimatedSection className="mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { value: "150+", label: "Projects Delivered" },
+              { value: "80+", label: "Enterprise Clients" },
+              { value: "15+", label: "Industries Served" },
+              { value: "98%", label: "Client Satisfaction" },
+            ].map((metric) => (
+              <div key={metric.label} className="glass-card-dark rounded-xl p-5 text-center border border-brand-border">
+                <div className="text-2xl font-extrabold gradient-text mb-1">{metric.value}</div>
+                <div className="text-xs text-brand-muted font-medium">{metric.label}</div>
+              </div>
+            ))}
+          </div>
         </AnimatedSection>
 
         {/* Grid */}
@@ -92,14 +109,14 @@ export function WhyUs() {
             const Icon = value.icon;
             return (
               <AnimatedSection key={value.title} delay={i * 0.08}>
-                <div className={`rounded-2xl border ${value.border} bg-white p-8 h-full ${value.hoverBg} hover:scale-[1.02] transition-all duration-300`}>
-                  <div className={`w-10 h-10 rounded-xl ${value.iconBg} flex items-center justify-center mb-5`}>
+                <div className={`rounded-2xl glass-card-dark glass-card-dark-hover p-8 h-full transition-all duration-300`}>
+                  <div className="w-10 h-10 rounded-xl bg-brand-navy border border-brand-border flex items-center justify-center mb-5">
                     <Icon className={`w-5 h-5 ${value.iconColor}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">
+                  <h3 className="text-lg font-bold text-white mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
+                  <p className="text-brand-muted text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </div>
