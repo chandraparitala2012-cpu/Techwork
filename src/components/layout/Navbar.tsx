@@ -24,7 +24,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-brand-navy-card border-b border-brand-navy-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28">
+        <div className="flex items-center justify-between h-32">
 
           {/* Logo */}
           <a
@@ -40,7 +40,7 @@ export function Navbar() {
               alt="DataTechZ"
               width={300}
               height={300}
-              className="h-[90px] w-auto object-contain"
+              className="h-[120px] w-auto object-contain"
               priority
             />
           </a>
